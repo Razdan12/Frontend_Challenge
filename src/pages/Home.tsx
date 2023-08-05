@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     const getNews = async () => {
       try {
         const response = await RestApi.getLatestNews();
-        setNews(response.data);
+        setNews(response.data?.articles);
       } catch (error) {
         console.log(error);
       }
@@ -23,8 +23,7 @@ const Home: React.FC = () => {
     getNews();
   }, []);
 
-  console.log(news?.map((item: any) => (item.map((item2: any) => (item2)))));
-
+console.log(news[1])
   return (
     <>
       <Layoutt>
@@ -33,26 +32,17 @@ const Home: React.FC = () => {
           <span className="m-5 font-bold text-3xl">Latest News</span>
         </div>
         <div className="flex gap-4 justify-center flex-wrap">
+          {news.map((item: any, index: number) => (
+
           <Cardd
-            image="https://pbs.twimg.com/media/D5dSsA4W4AIgDdF.png"
-            title="ini judul berita"
-            description="ini deskripsi berita"
+            image={item.urlToImage}
+            title={item.title}
+            description={item.description}
+            author={item.author}
+            key={index}
           />
-          <Cardd
-            image="https://pbs.twimg.com/media/D5dSsA4W4AIgDdF.png"
-            title="ini judul berita"
-            description="ini deskripsi berita"
-          />
-          <Cardd
-            image="https://pbs.twimg.com/media/D5dSsA4W4AIgDdF.png"
-            title="ini judul berita"
-            description="ini deskripsi berita"
-          />
-          <Cardd
-            image="https://pbs.twimg.com/media/D5dSsA4W4AIgDdF.png"
-            title="ini judul berita"
-            description="ini deskripsi berita"
-          />
+          ))}
+          
         </div>
 
         <div className="w-full h-32 flex justify-center mt-10">
