@@ -3,16 +3,18 @@ import { Layout } from "antd";
 import Navbar from "../components/Navbar";
 
 const { Content } = Layout;
-interface props{
-    children?: React.ReactNode;
-    id?: string;
+interface props {
+  children?: React.ReactNode;
+  id?: string;
 }
-const Layoutt:FC<props> = ({children, id}) => {
+const Layoutt: FC<props> = ({ children, id }) => {
   return (
     <>
-      <Layout>
-        <Navbar />
-        <Content className="p-5" id={id}>
+      <Layout >
+        <div className="sticky top-0 z-20">
+          <Navbar />
+        </div>
+        <Content className="p-5 overflow-x-hidden" id={id}>
           {children}
         </Content>
       </Layout>
