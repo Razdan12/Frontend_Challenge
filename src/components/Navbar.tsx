@@ -1,22 +1,19 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Input, Layout, Menu } from "antd";
-import { GlobalOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import { GlobalOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
 const Navbar = () => {
-  const [nav, setNav] = useState<boolean>(false);
-  const toggleNav = () => {
-    setNav(!nav);
-  };
-
   return (
     <div>
       <Header className="bg-white">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center text-red-500 gap-3 sm:text-xl">
-            <GlobalOutlined />
-            <span className="font-bold">Bulletin</span>
+            <Link to="/" className="flex justify-center items-center">
+              <GlobalOutlined />
+              <span className="font-bold ml-2">Bulletin</span>
+            </Link>
           </div>
 
           <div className="sm:flex items-center">
@@ -26,7 +23,9 @@ const Navbar = () => {
               defaultSelectedKeys={["home"]}
               className="text-center"
             >
-              <Menu.Item key="home">Home</Menu.Item>
+              <Menu.Item key="home">
+                <Link to="/">Home</Link>
+              </Menu.Item>
               <Menu.Item key="about">About</Menu.Item>
               <Menu.Item key="contact">Contact</Menu.Item>
             </Menu>
