@@ -7,7 +7,7 @@
 ![](./src/assets/5.jpg)
 ![](./src/assets/6.jpg)
 
-# Techologi
+# Technology
 - React + Vite
 - Tailwind Css
 - Ant Desain
